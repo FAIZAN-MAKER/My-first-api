@@ -18,7 +18,7 @@ mongoose
     )
     .then(() => {
         console.log("✅ Database connected!");
-        app.listen(process.env.PORT || 3000, () => {
+        app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
             console.log(`API IS LISTENING ON PORT ${process.env.PORT || 3000}`);
         });
     })
