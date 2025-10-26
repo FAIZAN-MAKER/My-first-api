@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.get("/", (req, res) => res.send("Hello from node api"));
 
-// ✅ Only use routes here - remove duplicate route definitions
 app.use('/api/products', productRoutes);
 
 //! Connecting dataBase to the backend
@@ -19,8 +18,8 @@ mongoose
     )
     .then(() => {
         console.log("✅ Database connected!");
-        app.listen(3000, () => {
-            console.log("API IS LISTENING ON PORT 3000");
+        app.listen(process.env.PORT || 3000, () => {
+            console.log(`API IS LISTENING ON PORT ${process.env.PORT || 3000}`);
         });
     })
     .catch((err) => console.error("❌ Database connection failed:", err));
